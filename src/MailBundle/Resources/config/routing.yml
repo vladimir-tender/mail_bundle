@@ -1,0 +1,37 @@
+mail_homepage:
+    path:     /
+    defaults: { _controller: MailBundle:Default:index }
+
+mail_inbox:
+    path:     /inbox
+    defaults: { _controller: MailBundle:Default:inbox }
+
+mail_outbox:
+    path:     /outbox
+    defaults: { _controller: MailBundle:Default:outbox }
+
+mail_deleted:
+    path:     /deleted
+    defaults: { _controller: MailBundle:Default:deleted }
+
+mail_add:
+    path:     /add
+    defaults: { _controller: MailBundle:Default:add }
+
+mail_delete:
+    path:     /delete/{id}
+    defaults: { _controller: MailBundle:Default:delete }
+    requirements:
+        id: \d+
+
+mail_delete_at_all:
+    path:     /delete_at_all/{id}
+    defaults: { _controller: MailBundle:Default:deleteAtAll }
+    requirements:
+        id: \d+
+
+mail_letter:
+    path:     /letter/{id}
+    defaults: { _controller: MailBundle:Default:letter }
+    requirements:
+        id: \d+

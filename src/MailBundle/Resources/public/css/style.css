@@ -1,0 +1,92 @@
+.top5 {
+    margin-top: 5px;
+}
+
+.top7 {
+    margin-top: 7px;
+}
+
+.top10 {
+    margin-top: 10px;
+}
+
+.top15 {
+    margin-top: 15px;
+}
+
+.top17 {
+    margin-top: 17px;
+}
+
+.top30 {
+    margin-top: 30px;
+}
+.top5 {
+    margin-top: 5px;
+}
+
+.top7 {
+    margin-top: 7px;
+}
+
+.top10 {
+    margin-top: 10px;
+}
+
+.top15 {
+    margin-top: 15px;
+}
+
+.top17 {
+    margin-top: 17px;
+}
+
+.top30 {
+    margin-top: 30px;
+}
+
+.letter-list {
+    font-size: 16px;
+}
+
+.letter-subject-0 {
+    font-weight: bold;
+    background: #e8f2eb;
+}
+
+.letter-subject-1 {
+    font-weight: normal;
+}
+
+.letter-list-head {
+    font-size: 14px;
+}
+
+.letter-href {
+    color: #111111;
+}
+
+.letter-href:hover{
+    color: #111111;
+}
+
+div.striped {
+    border-top: 1px dotted;
+    outline: none;
+    color: #111111;
+}
+
+div.striped:hover {
+    background: #e9e1e5;
+    color: #111111;
+}
+
+a.letter-action-ans, a.letter-action-del {
+    font-weight: normal;
+}
+a.letter-action-ans:hover{
+    color: #29a82b;
+}
+a.letter-action-del:hover{
+    color:red;
+}

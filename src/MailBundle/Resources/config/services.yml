@@ -1,0 +1,5 @@
+services:
+      file_uploader:
+            class: MailBundle\Services\FileUploader
+            arguments:
+                - "@doctrine.orm.entity_manager"

@@ -1,0 +1,18 @@
+{% extends "MailBundle::layout.html.twig" %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-2"><h3>Letter from: </h3></div>
+        <div class="col-sm-3"><h4>{{ letter.receiver }} <br> {{ letter.senttime.format("H:i d.m.y") }}</h4></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1 col-sm-offset-2"><a href="#" class="letter-action-ans">Answer</a></div>
+        <div class="col-sm-1"><a href="{{ path('mail_delete', {id: letter.id}) }}" class="letter-action-del">Delete</a>
+        </div>
+    </div>
+    <br>
+
+    <h3>Message:</h3>
+    {{ letter.message | raw }}
+    <br>
+{% endblock %}

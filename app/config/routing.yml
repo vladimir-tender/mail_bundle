@@ -1,0 +1,3 @@
+mail:
+    resource: "@MailBundle/Resources/config/routing.yml"
+    prefix:   /
