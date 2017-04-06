@@ -15,4 +15,12 @@
     <h3>Message:</h3>
     {{ letter.message | raw }}
     <br>
+    {% if letter.files is defined and letter.files | length > 0 %}
+        Attached files:
+        {% for file in letter.files %}
+
+            <br><a href="{{ path("mail_download_file", {fileId: file.id}) }}">{{ file.clientFileName }}</a>
+
+        {% endfor %}
+    {% endif %}
 {% endblock %}

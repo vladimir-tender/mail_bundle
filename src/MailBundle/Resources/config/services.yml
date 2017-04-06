@@ -3,3 +3,4 @@ services:
             class: MailBundle\Services\FileUploader
             arguments:
                 - "@doctrine.orm.entity_manager"
+                - "%image_upload_dir%"

@@ -38,7 +38,7 @@ class Files
     /**
      * @var string
      *
-     * @ORM\Column(name="fileExtention", type="string", length=255)
+     * @ORM\Column(name="fileExtention", type="string", length=255, nullable=true)
      */
     private $fileExtention;
 
@@ -108,6 +108,22 @@ class Files
     public function setFileExtention($fileExtention)
     {
         $this->fileExtention = $fileExtention;
+    }
+
+    /**
+     * @return Letter
+     */
+    public function getLetter()
+    {
+        return $this->letter;
+    }
+
+    /**
+     * @param Letter $letter
+     */
+    public function setLetter($letter)
+    {
+        $this->letter = $letter;
     }
 
 

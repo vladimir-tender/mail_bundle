@@ -89,24 +89,12 @@ class DefaultController extends Controller
             $form->handleRequest($request);
 
 
-            /**
-             * @var FileUploader $uploader
-             */
-            $uploader = $this->get("file_uploader");
-            $answer = $uploader->uploaderInit($_FILES['files'], $request->get("fileuploader-list-files"));
 
-            //var_dump($request->files);
-
-            //Сравнить и по совпадению - заливать..
-            //var_dump($request->get("fileuploader-list-files"));
-            //var_dump($_FILES);
-
-
-            die();
 
 
             $validator = $this->get('validator');
             $errors = $validator->validate($letter);
+
             if (count($errors) > 0) {
 
                 return [
@@ -120,12 +108,26 @@ class DefaultController extends Controller
             $manager->persist($letter);
             $manager->flush();
 
+            var_dump($letter->getId());
+
+            /**
+             * @var FileUploader $uploader
+             */
+            $uploader = $this->get("file_uploader");
+            $answer = $uploader->uploaderInit($_FILES['files'], $request->get("fileuploader-list-files"), $letter);
+
+            $letter->setFiles($answer);
+            $manager->persist($letter);
+            $manager->flush();
+
             $letterOut = clone $letter;
             $letterOut->setType("outbox");
             $manager->persist($letterOut);
             $manager->flush();
 
             $this->addFlash("success", "Message sent");
+
+
             return $this->redirectToRoute("mail_inbox");
         }
 
@@ -170,5 +172,18 @@ class DefaultController extends Controller
         $manager->flush();
 
         return $this->redirectToRoute("mail_inbox");
+    }
+
+    public function downloadFileAction($fileId)
+    {
+        $file = $this->getDoctrine()->getRepository("MailBundle:Files")
+            ->findOneBy(['id' => $fileId],[]);
+
+        $path = $this->getParameter("image_upload_dir");
+        $fullFileName = $path . $file->getServerFileName();
+        $clientFileName = $file->getClientFileName();
+
+        return $this->file($fullFileName, $clientFileName);
+
     }
 }

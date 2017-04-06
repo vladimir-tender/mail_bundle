@@ -35,3 +35,9 @@ mail_letter:
     defaults: { _controller: MailBundle:Default:letter }
     requirements:
         id: \d+
+
+mail_download_file:
+    path:    /letter/file/{fileId}
+    defaults: { _controller: MailBundle:Default:downloadFile }
+    requirements:
+        id: \d+

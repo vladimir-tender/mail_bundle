@@ -74,9 +74,10 @@ class Letter
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="MailBundle\Entity\Files", mappedBy="letter")
+     * @ORM\OneToMany(targetEntity="MailBundle\Entity\Files", mappedBy="letter", cascade={"persist"} )
      */
     private $files;
+
 
     /**
      * Get id
@@ -231,7 +232,6 @@ class Letter
     {
         $this->files = $files;
     }
-
 
 }
 
